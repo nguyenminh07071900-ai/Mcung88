@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCung88 - Nhà cái uy tín số 1 Châu Âu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a2e38 0%, #1a1a2e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: #0c3542;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #cccccc;
+            margin-top: 5px;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-login {
+            background-color: #2a9d8f;
+            color: white;
+        }
+        
+        .btn-register {
+            background-color: #e76f51;
+            color: white;
+        }
+        
+        .btn-deposit {
+            background-color: #f4a261;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .main-container {
+            display: flex;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        .game-section {
+            flex: 3;
+        }
+        
+        .info-section {
+            flex: 1;
+            background-color: rgba(12, 53, 66, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        
+        .game-table {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            background: linear-gradient(135deg, #0d5e52 0%, #0a3d32 100%);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .player-area, .banker-area {
+            text-align: center;
+            width: 40%;
+        }
+        
+        .area-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .card {
+            width: 80px;
+            height: 120px;
+            background-color: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-back {
+            background: linear-gradient(45deg, #1a3a8f, #3a5fcd);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
+        
+        .card-value {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .card-suit {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-size: 20px;
+        }
+        
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+        
+        .betting-area {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .bet-btn {
+            padding: 12px 25px;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .bet-btn:hover {
+            background-color: #21867a;
+            transform: scale(1.05);
+        }
+        
+        .bet-btn.active {
+            background-color: #ffcc00;
+            color: #0a2e38;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+        }
+        
+        .timer {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+        }
+        
+        .balance-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .balance {
+            font-size: 24px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .reset-btn {
+            padding: 8px 15px;
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .bet-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .bet-amount {
+            font-size: 20px;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        .bet-input {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            width: 100px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .bet-history {
+            margin-top: 30px;
+        }
+        
+        .history-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            text-align: center;
+        }
+        
+        .history-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        
+        .history-item {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+            text-align: center;
+        }
+        
+        .deposit-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #1a3a4a 0%, #0c252e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .amount-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .amount-btn {
+            padding: 10px 20px;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .qr-code {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        
+        .qr-code img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+        
+        .close-modal {
+            padding: 10px 20px;
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .win {
+            color: #4ade80;
+        }
+        
+        .lose {
+            color: #f87171;
+        }
+        
+        .hearts, .diamonds {
+            color: #e53e3e;
+        }
+        
+        .clubs, .spades {
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="logo">MCung88</div>
+            <div class="tagline">Nhà cái uy tín số 1 Châu Âu</div>
+        </div>
+        <div class="user-actions">
+            <button class="btn btn-login">Đăng nhập</button>
+            <button class="btn btn-register">Đăng ký</button>
+            <button class="btn btn-deposit" id="depositBtn">Nạp tiền</button>
+        </div>
+    </header>
+    
+    <div class="main-container">
+        <div class="game-section">
+            <div class="game-container">
+                <h1 class="game-title">BACCARAT ONLINE</h1>
+                
+                <div class="balance-container">
+                    <div class="balance">Số dư: <span id="balance">10,000</span> chip</div>
+                    <button class="reset-btn" id="resetBtn">Reset tiền</button>
+                </div>
+                
+                <div class="timer" id="timer">15</div>
+                
+                <div class="game-table">
+                    <div class="player-area">
+                        <div class="area-title">PLAYER</div>
+                        <div class="cards-container" id="playerCards">
+                            <div class="card card-back">?</div>
+                            <div class="card card-back">?</div>
+                            <div class="card card-back">?</div>
+                        </div>
+                        <div class="score">Điểm: <span id="playerScore">?</span></div>
+                    </div>
+                    
+                    <div class="banker-area">
+                        <div class="area-title">BANKER</div>
+                        <div class="cards-container" id="bankerCards">
+                            <div class="card card-back">?</div>
+                            <div class="card card-back">?</div>
+                            <div class="card card-back">?</div>
+                        </div>
+                        <div class="score">Điểm: <span id="bankerScore">?</span></div>
+                    </div>
+                </div>
+                
+                <div class="bet-controls">
+                    <div class="bet-amount">Số tiền cược:</div>
+                    <input type="number" class="bet-input" id="betAmount" value="100" min="10" max="10000">
+                </div>
+                
+                <div class="betting-area">
+                    <button class="bet-btn" id="betPlayer">Cược PLAYER (1:1)</button>
+                    <button class="bet-btn" id="betBanker">Cược BANKER (1:0.95)</button>
+                    <button class="bet-btn" id="betTie">Cược HÒA (1:8)</button>
+                </div>
+                
+                <div class="result" id="result"></div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <div class="bet-history">
+                <h3 class="history-title">LỊCH SỬ CƯỢC</h3>
+                <div class="history-list" id="historyList">
+                    <!-- Lịch sử cược sẽ hiển thị ở đây -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="deposit-modal" id="depositModal">
+        <div class="modal-content">
+            <h2 class="modal-title">NẠP TIỀN VÀO TÀI KHOẢN</h2>
+            <p>Chọn số tiền bạn muốn nạp:</p>
+            <div class="amount-options">
+                <button class="amount-btn" data-amount="500000">500.000 VND</button>
+                <button class="amount-btn" data-amount="200000">200.000 VND</button>
+            </div>
+            <div class="qr-code" id="qrCode">
+                <!-- QR Code sẽ hiển thị ở đây -->
+            </div>
+            <button class="close-modal" id="closeModal">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        // Khai báo biến toàn cục
+        let balance = 10000;
+        let currentBet = 0;
+        let betType = '';
+        let timeLeft = 15;
+        let countdownInterval;
+        let gameInProgress = false;
+        
+        // Lấy các phần tử DOM
+        const balanceElement = document.getElementById('balance');
+        const resetBtn = document.getElementById('resetBtn');
+        const timerElement = document.getElementById('timer');
+        const betAmountInput = document.getElementById('betAmount');
+        const betPlayerBtn = document.getElementById('betPlayer');
+        const betBankerBtn = document.getElementById('betBanker');
+        const betTieBtn = document.getElementById('betTie');
+        const playerCardsElement = document.getElementById('playerCards');
+        const bankerCardsElement = document.getElementById('bankerCards');
+        const playerScoreElement = document.getElementById('playerScore');
+        const bankerScoreElement = document.getElementById('bankerScore');
+        const resultElement = document.getElementById('result');
+        const historyList = document.getElementById('historyList');
+        
+        // Xử lý nút nạp tiền và modal
+        const depositBtn = document.getElementById('depositBtn');
+        const depositModal = document.getElementById('depositModal');
+        const closeModal = document.getElementById('closeModal');
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const qrCode = document.getElementById('qrCode');
+        
+        depositBtn.addEventListener('click', function() {
+            depositModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', function() {
+            depositModal.style.display = 'none';
+            qrCode.innerHTML = '';
+        });
+        
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const amount = this.getAttribute('data-amount');
+                qrCode.innerHTML = `<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRae6ObJeZYED4gpad82avmMywWqGaSiREwj9c4WIncLKYQ-i8w1jalISmaigtqnZIzz28&usqp=CAU" alt="QR Code">`;
+            });
+        });
+        
+        // Xử lý nút reset tiền
+        resetBtn.addEventListener('click', function() {
+            balance = 10000;
+            updateBalance();
+            addToHistory('RESET', 'Số dư đã được reset về 10,000 chip', 0);
+        });
+        
+        // Xử lý nút đặt cược
+        betPlayerBtn.addEventListener('click', function() {
+            placeBet('PLAYER');
+        });
+        
+        betBankerBtn.addEventListener('click', function() {
+            placeBet('BANKER');
+        });
+        
+        betTieBtn.addEventListener('click', function() {
+            placeBet('TIE');
+        });
+        
+        // Hàm đặt cược
+        function placeBet(type) {
+            if (gameInProgress) {
+                alert('Ván cược đang diễn ra, vui lòng chờ kết thúc!');
+                return;
+            }
+            
+            const betAmount = parseInt(betAmountInput.value);
+            
+            if (isNaN(betAmount) || betAmount < 10) {
+                alert('Số tiền cược tối thiểu là 10 chip!');
+                return;
+            }
+            
+            if (betAmount > balance) {
+                alert('Số dư không đủ để đặt cược!');
+                return;
+            }
+            
+            currentBet = betAmount;
+            betType = type;
+            balance -= betAmount;
+            updateBalance();
+            
+            // Đánh dấu nút cược được chọn
+            betPlayerBtn.classList.remove('active');
+            betBankerBtn.classList.remove('active');
+            betTieBtn.classList.remove('active');
+            
+            if (type === 'PLAYER') betPlayerBtn.classList.add('active');
+            if (type === 'BANKER') betBankerBtn.classList.add('active');
+            if (type === 'TIE') betTieBtn.classList.add('active');
+            
+            addToHistory('CƯỢC', `Đặt cược ${betAmount} chip vào ${type}`, -betAmount);
+            
+            // Bắt đầu đếm ngược nếu chưa bắt đầu
+            if (!countdownInterval) {
+                startCountdown();
+            }
+        }
+        
+        // Hàm bắt đầu đếm ngược
+        function startCountdown() {
+            gameInProgress = true;
+            timeLeft = 15;
+            timerElement.textContent = timeLeft;
+            resultElement.textContent = '';
+            
+            countdownInterval = setInterval(function() {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                    finishGame();
+                }
+            }, 1000);
+        }
+        
+        // Hàm kết thúc game và tính kết quả
+        function finishGame() {
+            // Tạo bài ngẫu nhiên
+            const playerCards = generateCards();
+            const bankerCards = generateCards();
+            
+            // Tính điểm
+            const playerScore = calculateScore(playerCards);
+            const bankerScore = calculateScore(bankerCards);
+            
+            // Hiển thị bài với hiệu ứng
+            revealCards(playerCards, playerCardsElement, 'player');
+            revealCards(bankerCards, bankerCardsElement, 'banker');
+            
+            // Hiển thị điểm
+            playerScoreElement.textContent = playerScore;
+            bankerScoreElement.textContent = bankerScore;
+            
+            // Xác định kết quả
+            let result = '';
+            let winner = '';
+            
+            if (playerScore > bankerScore) {
+                result = 'PLAYER THẮNG';
+                winner = 'PLAYER';
+            } else if (bankerScore > playerScore) {
+                result = 'BANKER THẮNG';
+                winner = 'BANKER';
+            } else {
+                result = 'HÒA';
+                winner = 'TIE';
+            }
+            
+            // Tính toán thắng/thua
+            let winAmount = 0;
+            if (betType === winner) {
+                if (winner === 'PLAYER') {
+                    winAmount = currentBet * 2;
+                } else if (winner === 'BANKER') {
+                    winAmount = Math.floor(currentBet * 1.95);
+                } else if (winner === 'TIE') {
+                    winAmount = currentBet * 9;
+                }
+                
+                balance += winAmount;
+                resultElement.textContent = `BẠN THẮNG! +${winAmount - currentBet} chip`;
+                resultElement.className = 'result win';
+                addToHistory('THẮNG', `Thắng cược ${betType} - Nhận ${winAmount} chip`, winAmount - currentBet);
+            } else {
+                resultElement.textContent = `BẠN THUA! -${currentBet} chip`;
+                resultElement.className = 'result lose';
+                addToHistory('THUA', `Thua cược ${betType} - Mất ${currentBet} chip`, -currentBet);
+            }
+            
+            updateBalance();
+            
+            // Reset cược
+            currentBet = 0;
+            betType = '';
+            betPlayerBtn.classList.remove('active');
+            betBankerBtn.classList.remove('active');
+            betTieBtn.classList.remove('active');
+            
+            // Reset game sau 5 giây
+            setTimeout(resetGame, 5000);
+        }
+        
+        // Hàm reset game
+        function resetGame() {
+            gameInProgress = false;
+            
+            // Reset bài
+            const playerCards = playerCardsElement.querySelectorAll('.card');
+            const bankerCards = bankerCardsElement.querySelectorAll('.card');
+            
+            playerCards.forEach(card => {
+                card.className = 'card card-back';
+                card.textContent = '?';
+                card.innerHTML = '';
+            });
+            
+            bankerCards.forEach(card => {
+                card.className = 'card card-back';
+                card.textContent = '?';
+                card.innerHTML = '';
+            });
+            
+            // Reset điểm
+            playerScoreElement.textContent = '?';
+            bankerScoreElement.textContent = '?';
+            
+            // Reset kết quả
+            resultElement.textContent = '';
+            resultElement.className = 'result';
+        }
+        
+        // Hàm tạo bài ngẫu nhiên
+        function generateCards() {
+            const suits = ['hearts', 'diamonds', 'clubs', 'spades'];
+            const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+            
+            const cards = [];
+            for (let i = 0; i < 3; i++) {
+                const suit = suits[Math.floor(Math.random() * suits.length)];
+                const value = values[Math.floor(Math.random() * values.length)];
+                cards.push({ suit, value });
+            }
+            
+            return cards;
+        }
+        
+        // Hàm tính điểm
+        function calculateScore(cards) {
+            let score = 0;
+            
+            for (const card of cards) {
+                if (card.value === 'A') {
+                    score += 1;
+                } else if (['J', 'Q', 'K'].includes(card.value)) {
+                    score += 0;
+                } else {
+                    score += parseInt(card.value);
+                }
+            }
+            
+            return score % 10;
+        }
+        
+        // Hàm lật bài với hiệu ứng
+        function revealCards(cards, container, type) {
+            const cardElements = container.querySelectorAll('.card');
+            
+            // Phát âm thanh chia bài
+            playCardSound();
+            
+            cardElements.forEach((cardElement, index) => {
+                setTimeout(() => {
+                    const card = cards[index];
+                    cardElement.className = 'card';
+                    cardElement.style.background = 'white';
+                    
+                    // Tạo nội dung lá bài
+                    const suitSymbol = getSuitSymbol(card.suit);
+                    const suitClass = card.suit;
+                    
+                    cardElement.innerHTML = `
+                        <div class="card-value ${suitClass}">${card.value}</div>
+                        <div class="card-suit ${suitClass}">${suitSymbol}</div>
+                    `;
+                    
+                    // Phát âm thanh lật bài
+                    playCardSound();
+                }, 1000 * (index + 1));
+            });
+        }
+        
+        // Hàm lấy ký hiệu chất bài
+        function getSuitSymbol(suit) {
+            switch(suit) {
+                case 'hearts': return '♥';
+                case 'diamonds': return '♦';
+                case 'clubs': return '♣';
+                case 'spades': return '♠';
+                default: return '';
+            }
+        }
+        
+        // Hàm phát âm thanh
+        function playCardSound() {
+            // Tạo âm thanh lật bài đơn giản
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.type = 'sine';
+            oscillator.frequency.value = 400 + Math.random() * 200;
+            gainNode.gain.value = 0.1;
+            
+            oscillator.start();
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);
+            oscillator.stop(audioContext.currentTime + 0.2);
+        }
+        
+        // Hàm cập nhật số dư
+        function updateBalance() {
+            balanceElement.textContent = balance.toLocaleString();
+        }
+        
+        // Hàm thêm vào lịch sử
+        function addToHistory(type, description, amount) {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            
+            const now = new Date();
+            const timeString = `${now.getHours()}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+            
+            let amountClass = '';
+            if (amount > 0) {
+                amountClass = 'win';
+            } else if (amount < 0) {
+                amountClass = 'lose';
+            }
+            
+            historyItem.innerHTML = `
+                <div>
+                    <div>${type}</div>
+                    <div style="font-size: 12px; color: #ccc;">${timeString}</div>
+                </div>
+                <div>
+                    <div>${description}</div>
+                    <div class="${amountClass}" style="text-align: right;">${amount > 0 ? '+' : ''}${amount.toLocaleString()} chip</div>
+                </div>
+            `;
+            
+            historyList.insertBefore(historyItem, historyList.firstChild);
+            
+            // Giới hạn số lượng mục lịch sử
+            if (historyList.children.length > 10) {
+                historyList.removeChild(historyList.lastChild);
+            }
+        }
+        
+        // Khởi tạo game
+        updateBalance();
+    </script>
+</body>
+</html>
